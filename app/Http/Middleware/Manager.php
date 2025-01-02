@@ -4,6 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Config;
 use Symfony\Component\HttpFoundation\Response;
 
 class Manager
@@ -15,7 +18,14 @@ class Manager
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!auth()->guard('manager')->check()){
+        DB::purge('tenant');
+        DB::purge('landlord');
+        Config::set('database.default','landlord');
+        DB::reconnect('landlord');
+        DB::setDefaultConnection('landlord');
+
+        
+        if(!Auth::guard('manager')->check()){
             return to_route('manager.get.login');
         }
         return $next($request);
