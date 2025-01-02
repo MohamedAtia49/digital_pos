@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Manger - Login</title>
+    <title>Manager - Login</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,12 +19,12 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-        <a href="{{ route('manger.get.login') }}" class="h1"><b>Manger -</b> Login</a>
+        <a href="{{ route('manager.get.login') }}" class="h1"><b>Manager -</b> Login</a>
         </div>
         <div class="card-body">
         <p class="login-box-msg">Sign in to mange your stores</p>
 
-        <form action="{{ route('manger.login') }}" method="post">
+        <form action="{{ route('manager.login') }}" method="post">
             @csrf
             <div class="input-group mb-3">
             <input type="email" name="email" class="form-control" placeholder="Email">

@@ -8,11 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Manger extends Authenticatable
+class Manager extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table =['mangers'];
+    protected $table =['managers'];
     protected $connection = 'landlord';  // Use the landlord database connection
 
     protected $guarded = [];

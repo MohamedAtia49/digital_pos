@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
-use App\Http\Controllers\Manger\MangerAuthController;
+use App\Http\Controllers\Manager\ManagerAuthController;
 use Livewire\Livewire;
 use App\Livewire\UserSearch;
 use Illuminate\Support\Facades\Route;
@@ -10,7 +10,7 @@ use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Manger\MangerDashboardController;
+use App\Http\Controllers\Manager\ManagerDashboardController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -24,12 +24,12 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-########################### App Manger Auth #######################
-Route::group(['as' => 'manger.'], function () {
-    Route::view('/manger/login','manger_dashboard.auth.login')->middleware('check.host')->name('get.login');
-    Route::controller(MangerAuthController::class)->group(function () {
-        Route::post('/manger/dashboard/login/','login')->name('login');
-        Route::post('/manger/logout','logout')->name('logout');
+########################### App Manager Auth #######################
+Route::group(['as' => 'manager.'], function () {
+    Route::view('/manager/login','manager_dashboard.auth.login')->middleware('check.host')->name('get.login');
+    Route::controller(ManagerAuthController::class)->group(function () {
+        Route::post('/manager/dashboard/login/','login')->name('login');
+        Route::post('/manager/logout','logout')->name('logout');
     });
 });
 
@@ -48,9 +48,9 @@ Route::group(['as' => 'admin.'], function () {
     ],
     function () {
 
-    ########################################## Manger Routes ##########################################
-    Route::prefix('manger/dashboard')->middleware('manger')->name('manger.dashboard.')->group(function () {
-        Route::get('/index', [MangerDashboardController::class,'index'])->name('index');
+    ########################################## Manager Routes ##########################################
+    Route::prefix('manager/dashboard')->middleware('manager')->name('manager.dashboard.')->group(function () {
+        Route::get('/index', [ManagerDashboardController::class,'index'])->name('index');
     });
 
     ########################################## Stores Routes ##########################################

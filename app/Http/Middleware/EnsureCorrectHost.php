@@ -22,7 +22,7 @@ class EnsureCorrectHost
         $baseUrl = $request->url();
 
         // You can now check the full URL
-        if ($baseUrl !== 'http://manger.pos.test/manger/login') {
+        if ($baseUrl !== 'http://manager.pos.test/manager/login') {
 
             abort(404, 'Page Not Found !');
 

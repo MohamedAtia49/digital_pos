@@ -1,4 +1,4 @@
-@extends('manger_dashboard.layouts.app')
+@extends('manager_dashboard.layouts.app')
 
 @section('title',__('site.dashboard'))
 @section('dashboard-active','active')

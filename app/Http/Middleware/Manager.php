@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Manger
+class Manager
 {
     /**
      * Handle an incoming request.
@@ -15,8 +15,8 @@ class Manger
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!auth()->guard('manger')->check()){
-            return to_route('manger.get.login');
+        if(!auth()->guard('manager')->check()){
+            return to_route('manager.get.login');
         }
         return $next($request);
     }

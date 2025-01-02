@@ -40,9 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'manger' => [
+        'manager' => [
             'driver' => 'session',
-            'provider' => 'mangers',
+            'provider' => 'managers',
         ],
     ],
 
@@ -68,9 +68,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'mangers' => [
+        'managers' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Manger::class,
+            'model' => App\Models\Manager::class,
             'connection' => 'landlord',  // Use the landlord connection for authentication
         ],
 
