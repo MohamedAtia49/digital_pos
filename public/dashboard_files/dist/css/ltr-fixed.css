@@ -1,0 +1,208 @@
+.user {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.user-menu .dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    position: relative;
+    padding-left: 0;
+}
+
+.user-dropdown {
+    position: absolute;
+    right: 0;
+    left: auto;
+    z-index: 1050; /* Ensure dropdown appears above other content */
+    background-color: #343a40;
+    color: white;
+}
+
+.user-menu:hover{
+    background-color: #000c19;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Make the user-footer a flex container */
+.user-footer {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+}
+
+/* Optional: Style the logout button */
+.btn-flat{
+    background-color: #000c19;
+}
+
+.notifications{
+    position: absolute;
+    top: 11px;
+    right: 170px;
+    margin: 0;
+    padding: 0;
+}
+
+.messages{
+    position: absolute;
+    top: 11px;
+    right: 220px;
+    margin: 0;
+    padding: 0;
+}
+
+.locales-menu{
+    position: absolute;
+    top: 16px;
+    right: 280px;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-wide{
+    width: 150px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.flag-icon-main{
+    margin-left: 30px;
+}
+
+.locale:hover{
+    background-color: #343a40;
+    color: white;
+}
+
+.breadcrumb{
+    font-size: 12px;
+}
+
+.breadcrumb-main{
+    margin-left: 8px;
+}
+
+.breadcrumb-span{
+    margin-left: 6px;
+}
+
+.breadcrumb-span-last{
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#custom-tabs .nav-link {
+    color: #6c757d; /* Non-active tab color */
+    background-color: #f8f9fa; /* Background color of non-active tabs */
+    border: 1px solid #dee2e6; /* Border color for non-active tabs */
+}
+
+#custom-tabs .nav-link:hover {
+    color: #495057; /* Hover color */
+    background-color: #e9ecef; /* Hover background color */
+}
+
+#custom-tabs .nav-link.active {
+    color: #fff; /* Active tab text color */
+    background-color: #266c8f; /* Active tab background color */
+    border-color: #007bff; /* Active tab border color */
+}
+
+.product-search{
+    width: 400px;
+    margin-right: 170px;
+}
+
+.input-height{
+    height: 40px;
+}
+
+.btn-fix{
+    margin-bottom: 20px;
+    margin-left: 320px;
+    font-size: 20px;
+    width: 1000px;
+}
+
+.header-title{
+    background-color: #495057;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: 1px solid #2d333a;
+    color: white;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.brand-link{
+    height: 160px;
+}
+
+.brand-img{
+    position: absolute;
+    left: 35px;
+    height: 85px;
+}
+
+.brand-text{
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    font-size: 30px;
+}
+
+.optional{
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.archive{
+    position: absolute;
+    left: 910px;
+}
+
+.data-deleted{
+    position: relative;
+    left: 670px;
+    height: 50px;
+    border: 2px solid rgb(196, 141, 39);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.btn-force-delete{
+    margin-left: 30px;
+}
+
+.btn-archive{
+    width: 110px;
+}
+
+.btn-archive:hover{
+    background-color: rgb(82, 53, 10);
+}
+
+.product-archive{
+    position: absolute;
+    left: 1187px;
+}
