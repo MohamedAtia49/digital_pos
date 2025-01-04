@@ -26,7 +26,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 ########################### App Manager Auth #######################
 Route::group(['as' => 'manager.'], function () {
-    Route::view('/manager/login','manager_dashboard.auth.login')->middleware(['check.host','guest:manager'])->name('get.login');
+    Route::view('/manager/login','manager_dashboard.auth.login')->middleware(['check.host','guest.manager'])->name('get.login');
     Route::controller(ManagerAuthController::class)->group(function () {
         Route::post('/manager/dashboard/login/','login')->name('login');
         Route::post('/manager/logout','logout')->name('logout');
@@ -42,6 +42,7 @@ Route::group(['as' => 'admin.'], function () {
     });
 });
 
+########################### Under Localization and Livewire ############################
     Route::group([
         'prefix' => LaravelLocalization::setLocale() ,
         'middleware' => ['localeSessionRedirect','localizationRedirect','localeViewPath']

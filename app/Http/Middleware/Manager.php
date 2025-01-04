@@ -24,10 +24,11 @@ class Manager
         DB::reconnect('landlord');
         DB::setDefaultConnection('landlord');
 
-        
-        if(!Auth::guard('manager')->check()){
+
+        if(!auth()->guard('web')->check()){
             return to_route('manager.get.login');
         }
+
         return $next($request);
     }
 }

@@ -33,11 +33,13 @@ class LandlordSeeder extends Seeder
         ]);
 
         // Define Landlord connection
-        DB::connection('landlord')->table('managers')->insert([
+        DB::connection('landlord')->table('users')->insert([
             [
                 'name' => 'Mohamed Atia',
                 'email' => 'manager@pos.com',
                 'password' => bcrypt('2480123m'),
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
     }

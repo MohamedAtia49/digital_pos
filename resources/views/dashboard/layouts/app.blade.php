@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 
-@include('dashboard.paritals.header')
+@include('dashboard.partials.header')
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
 <div class="wrapper">
 
-    @include('dashboard.paritals.navbar')
+    @include('dashboard.partials.navbar')
 
-    @include('dashboard.paritals.sidebar')
+    @include('dashboard.partials.sidebar')
 
         @yield('content')
 
-    @include('dashboard.paritals._session')
+    @include('dashboard.partials._session')
 
-    @include('dashboard.paritals.footer')
+    @include('dashboard.partials.footer')
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -25,7 +25,7 @@
 </div>
 <!-- ./wrapper -->
 
-@include('dashboard.paritals.scripts')
+@include('dashboard.partials.scripts')
 
 </body>
 </html>

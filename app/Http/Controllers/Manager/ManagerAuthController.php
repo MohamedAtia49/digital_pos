@@ -19,7 +19,7 @@ class ManagerAuthController extends Controller
             DB::reconnect('landlord');
             DB::setDefaultConnection('landlord');
 
-            if (!Auth::guard('manager')->attempt(['email' => $request->email,
+            if (!Auth::guard('web')->attempt(['email' => $request->email,
                 'password' => $request->password], $request->remember )){
                     throw ValidationException::withMessages([
                         'email' => trans('auth.failed'),
@@ -27,14 +27,22 @@ class ManagerAuthController extends Controller
             }
 
             // Redirect on success
-            return to_route('dashboard.index');
+            return to_route('manager.dashboard.index');
     }
 
 
     public function logout()
     {
-        Auth::guard('manager')->logout();
-        session()->forget('guard.manager');
+        DB::purge('tenant');
+        DB::purge('landlord');
+        Config::set('database.default','landlord');
+        DB::reconnect('landlord');
+        DB::setDefaultConnection('landlord');
+
+        // dd(config('database.default'));
+
+        Auth::guard('web')->logout();
+        session()->forget('guard.web');
         session()->regenerateToken();
         return to_route('manager.get.login');
     }

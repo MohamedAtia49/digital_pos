@@ -119,10 +119,10 @@
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
-                        <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a href="{{ route('manager.logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             @lang('site.logout')
                         </a>
-                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ route('manager.logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                     </li>
