@@ -1,97 +1,88 @@
-<!-- jQuery -->
-<script src="{{ asset('dashboard_files/plugins/jquery/jquery.min.js') }}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('dashboard_files/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 rtl -->
-<script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('dashboard_files/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('dashboard_files/plugins/chart.js/Chart.min.js') }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('dashboard_files/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-<!-- daterangepicker -->
-<script src="{{ asset('dashboard_files/plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('dashboard_files/plugins/daterangepicker/daterangepicker.js') }}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{ asset('dashboard_files/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-<!-- Summernote -->
-<script src="{{ asset('dashboard_files/plugins/summernote/summernote-bs4.min.js') }}"></script>
-<!-- overlayScrollbars -->
-<script src="{{ asset('dashboard_files/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('dashboard_files/dist/js/adminlte.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('dashboard_files/dist/js/pages/dashboard.js') }}"></script>
-<!-- icheck -->
-<script src="{{ asset('dashboard_files/plugins/icheck/icheck.min.js') }}"></script>
-<!-- print this -->
-<script src="{{ asset('dashboard_files/js/printThis.js') }}"></script>
-<!-- FastClick -->
-<script src="{{ asset('dashboard_files/js/fastclick.js') }}"></script>
-<!-- tiny MCE -->
-<script src="https://cdn.tiny.cloud/1/27b5q2pg19cejl93lsfs9dkyjzsdo57wr5rf3tps0vtnwzwc/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/jquery/jquery.js"></script>
+    <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/popper/popper.js"></script>
+    <script src="{{ asset('manager_dashboard/assets/') }}/vendor/js/bootstrap.js"></script>
+    <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-<!-- custom js -->
-<script src="{{ asset('dashboard_files/js/custom/image_preview.js') }}"></script>
-<script src="{{ asset('dashboard_files/js/custom/order.js') }}"></script>
-<script src="{{ asset('dashboard_files/js/custom/icheck.js') }}"></script>
-{{-- <script src="{{ asset('dashboard_files/js/custom/delete_item.js') }}"></script> --}}
+    <script src="{{ asset('manager_dashboard/assets/') }}/vendor/js/menu.js"></script>
+    <!-- endbuild -->
 
-<script>
-    $('.delete').click(function (e) {
-        var that = $(this)
+    <!-- Vendors JS -->
+    <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/apex-charts/apexcharts.js"></script>
 
-        e.preventDefault();
+    <!-- Main JS -->
+    <script src="{{ asset('manager_dashboard/assets/') }}/js/main.js"></script>
 
-        var n = new Noty({
-            text: `<div style="text-align: center;">@lang('site.confirm_delete')</div>`,
-            type: "error",
-            layout: 'topCenter',
-            killer: true,
-            buttons: [
-                Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
-                    that.closest('form').submit();
-                }),
+    <!-- Page JS -->
+    <script src="{{ asset('manager_dashboard/assets/') }}/js/dashboards-analytics.js"></script>
 
-                Noty.button("@lang('site.no')", 'btn btn-warning mr-2', function () {
-                    n.close();
-                })
-            ]
-        });
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-        n.show();
+    <script>
 
-    });//end of delete
+        // Preloader
+        document.addEventListener("DOMContentLoaded", function () {
+                const preloader = document.querySelector(".preloader");
 
-    $('.restore').click(function (e) {
-        var that = $(this)
+                window.addEventListener("load", function () {
+                    // Add a delay before hiding the preloader (e.g., 2 seconds)
+                    setTimeout(() => {
+                    preloader.classList.add("hidden");
+                    }, 1500); // 2000ms = 2 seconds
+                });
+            });
 
-        e.preventDefault();
+            
+        document.addEventListener("DOMContentLoaded", () => {
+            Livewire.hook('morph.updated', (el, component) => {
+                const createdAlert = document.querySelector('.create-alert');
+                if (createdAlert){
+                    setTimeout(() => {
+                        createdAlert.style.display = 'none' ;
+                    }, 2000);
+                }
+            });
+        })
 
-        var n = new Noty({
-            text: `<div style="text-align: center;">@lang('site.confirm_restore')</div>`,
-            type: "success",
-            layout: 'topCenter',
-            killer: true,
-            buttons: [
-                Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
-                    that.closest('form').submit();
-                }),
+        document.addEventListener("DOMContentLoaded", () => {
+            Livewire.hook('morph.updated', (el, component) => {
+                const updatedAlert = document.querySelector('.update-alert');
+                if (updatedAlert){
+                    setTimeout(() => {
+                        updatedAlert.style.display = 'none' ;
+                    }, 2000);
+                }
+            });
+        })
 
-                Noty.button("@lang('site.no')", 'btn btn-warning mr-2', function () {
-                    n.close();
-                })
-            ]
-        });
+        document.addEventListener("DOMContentLoaded", () => {
+            Livewire.hook('morph.updated', (el, component) => {
+                const deletedAlert = document.querySelector('.delete-alert');
+                if (deletedAlert){
+                    setTimeout(() => {
+                        deletedAlert.style.display = 'none' ;
+                    }, 2000);
+                }
+            });
+        })
 
-        n.show();
 
-    });//end of restore
+        document.addEventListener('createModalToggle', event => {
+            $('#createModal').modal('toggle');
+        })
 
-</script>
-@yield('scripts')
+        document.addEventListener('editModalToggle', event => {
+            $('#editModal').modal('toggle');
+        })
+
+        document.addEventListener('deleteModalToggle', event => {
+            $('#deleteModal').modal('toggle');
+        })
+
+        document.addEventListener('showModalToggle', event => {
+            $('#showModal').modal('toggle');
+        })
+
+    </script>

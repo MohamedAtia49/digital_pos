@@ -126,6 +126,6 @@
 
         <!-- / Content -->
 
-        @include('manager_dashboard.auth.scripts')
+        @include('manager_dashboard.auth.partials.scripts')
     </body>
 </html>

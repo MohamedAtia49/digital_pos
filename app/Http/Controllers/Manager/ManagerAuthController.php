@@ -39,7 +39,6 @@ class ManagerAuthController extends Controller
         DB::reconnect('landlord');
         DB::setDefaultConnection('landlord');
 
-        // dd(config('database.default'));
 
         Auth::guard('web')->logout();
         session()->forget('guard.web');

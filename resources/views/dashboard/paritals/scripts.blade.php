@@ -93,17 +93,5 @@
 
     });//end of restore
 
-    // Preloader
-    document.addEventListener("DOMContentLoaded", function () {
-        const preloader = document.querySelector(".preloader");
-
-        window.addEventListener("load", function () {
-            // Add a delay before hiding the preloader (e.g., 2 seconds)
-            setTimeout(() => {
-            preloader.classList.add("hidden");
-            }, 1500); // 2000ms = 2 seconds
-        });
-    });
-
 </script>
 @yield('scripts')

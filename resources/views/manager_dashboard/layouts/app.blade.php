@@ -1,31 +1,49 @@
 <!DOCTYPE html>
-<html dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
+<html
+    lang="en"
+    class="light-style layout-menu-fixed"
+    dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}"
+    data-theme="theme-default"
+    data-assets-path="{{ asset('manager_dashboard/assets/') }}/"
+    data-template="vertical-menu-template-free"
+>
+    @include('manager_dashboard.partials.header')
+    <body>
 
-@include('manager_dashboard.partials.header')
+        <!-- Preloader -->
+        <div id="preloader" class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="{{ asset('dashboard_files/dist/img/manager-preloader.gif') }}" alt="AdminLTELogo" width="250" height="250">
+            @lang('site.loading')
+        </div>
+        <!--  End Preloader -->
+        
+        <!-- Layout wrapper -->
+        <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
 
-<body class="hold-transition sidebar-mini layout-fixed">
+            @include('manager_dashboard.partials.sidebar')
 
-<div class="wrapper">
+            <!-- Layout container -->
+            <div class="layout-page">
+            @include('manager_dashboard.partials.navbar')
 
-    @include('manager_dashboard.partials.navbar')
+                @yield('content')
 
-    @include('manager_dashboard.partials.sidebar')
+                @include('manager_dashboard.partials.footer')
 
-        @yield('content')
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
 
-    @include('manager_dashboard.partials._session')
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+        </div>
+        <!-- / Layout wrapper -->
 
-    @include('manager_dashboard.partials.footer')
+        @include('manager_dashboard.partials.scripts')
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-@include('manager_dashboard.partials.scripts')
-
-</body>
+    </body>
 </html>

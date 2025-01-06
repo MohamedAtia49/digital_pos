@@ -1,0 +1,97 @@
+.user-icon{
+    position: relative;
+    margin-right: 1020px;
+    margin-left: 30px;
+}
+
+/* Custom styles for the locales dropdown */
+.locales-menu .dropdown-toggle {
+    position: relative;
+    top: -20px;
+    right: 1020px;
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #6448b1;
+    border: 2px solid #1a4964;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.locales-menu .flag-icon-main {
+    margin-right: 30px;
+}
+
+.locales-menu .dropdown-menu {
+    min-width: 200px;
+    position: absolute;
+    top: 22px;
+    right: 1020px;
+}
+
+.locales-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.locales-menu .flag-icon {
+    width: 24px;
+    height: 24px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+.locale:hover{
+    background-color: #482d91;
+    color: white;
+}
+
+
+/******************************************************************************/
+/* Preloader styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Background color for preloader */
+    z-index: 9999; /* Make sure it appears above all other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.preloader img.animation__shake {
+    animation: shake 1.5s infinite;
+}
+
+/* Shake animation */
+@keyframes shake {
+    0%, 100% {
+    transform: translateX(0);
+    }
+    25% {
+    transform: translateX(-5px);
+    }
+    50% {
+    transform: translateX(5px);
+    }
+    75% {
+    transform: translateX(-5px);
+    }
+}
+
+/* Hide the preloader after loading */
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+

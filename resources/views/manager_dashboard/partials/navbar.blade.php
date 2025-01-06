@@ -1,133 +1,82 @@
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
+<!-- Navbar -->
 
-        <!-- Right navbar links -->
-        <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-        </li>
-        </ul>
+<nav
+class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+id="layout-navbar"
+>
+<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+    <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+        <i class="bx bx-menu bx-sm"></i>
+    </a>
+</div>
 
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-            </div>
-        </div>
-        </form>
-        <!-- End Right navbar links -->
+<div class="navbar-nav-right d-flex align-items-center pb-4 pt-3" id="navbar-collapse">
 
-
-        <!-- Left navbar links (deep left) -->
-        <ul class="navbar-nav mr-auto-navbav">
-
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown messages">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-comments"></i>
-            <span class="badge badge-danger navbar-badge">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                <img src="" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                    </h3>
-                    <p class="text-sm">Call me whenever you can...</p>
-                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-                </div>
-                <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-            </div>
-        </li>
-
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown notifications">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-item dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-                <i class="fas fa-users mr-2"></i> 8 friend requests
-                <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-                <i class="fas fa-file mr-2"></i> 3 new reports
-                <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-            </div>
-        </li>
-        </ul>
-
-        {{--<!-- Tasks: style can be found in dropdown.less -->--}}
+    <!-- Localization Language Dropdown -->
+    <div class="container mt-5">
         <div class="dropdown locales-menu">
-            <button class="dropdown-toggle btn-wide" type="button" data-toggle="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     @if (app()->getLocale() == $localeCode)
                         <span class="lang-name">{{ $properties['native'] }}</span>
-                        <img src="{{ asset('vendor/blade-flags/language-' . $localeCode . '.svg') }}" class="flag-icon-main" width="15px" height="15px">
+                        <img src="{{ asset('vendor/blade-flags/language-' . $localeCode . '.svg') }}" class="flag-icon-main" width="20" height="20" alt="{{ $properties['native'] }}">
                     @endif
                 @endforeach
             </button>
-            <div class="dropdown-menu">
+            <ul class="dropdown-menu">
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                    <a class="dropdown-item locale" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                        <!-- Adjust width and height directly -->
-                        <img src="{{ asset('vendor/blade-flags/language-' . $localeCode . '.svg') }}"  width="30" height="30" alt="{{ $properties['native'] }}" class="flag-icon">
-                        {{ $properties['native'] }}
-                    </a>
-                @endforeach
-            </div>
-        </div>
-
-        <ul class="navbar-nav user" style="margin-left: 0;margin-top: 7px ; position: absolute; top: 0; left: 0;">
-            <li class="nav-item dropdown user user-menu">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                    <img src="{{ asset(auth()->user()->image) }}" class="user-image mr-2 mt-auto" alt="User Image">
-                    <span class="hidden-xs">{{ auth()->user()->name }}</span>
-                </a>
-                <ul class="dropdown-menu user-dropdown">
-                    <!-- User Image -->
-                    <li class="user-header">
-                        <img src="{{ asset(auth()->user()->image) }}" class="img-circle" alt="User Image">
-                        <p>
-                            {{ auth()->user()->name }}
-                            <small>@lang('site.member-since') {{ auth()->user()->created_at->diffForHumans() }}</small>
-                        </p>
-                    </li>
-                    <!-- Menu Footer-->
-                    <li class="user-footer">
-                        <a href="{{ route('manager.logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            @lang('site.logout')
+                    <li>
+                        <a class="dropdown-item locale" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            <img src="{{ asset('vendor/blade-flags/language-' . $localeCode . '.svg') }}" class="flag-icon" alt="{{ $properties['native'] }}">
+                            {{ $properties['native'] }}
                         </a>
-                        <form id="logout-form" action="{{ route('manager.logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
                     </li>
-                </ul>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+
+    <ul class="navbar-nav flex-row align-items-center">
+        <!-- Notification -->
+        {{-- @livewire('admin.notifications.category-notification') --}}
+        <!-- End Notification -->
+    </ul>
+
+
+    <ul class="navbar-nav user-icon">
+        <!-- User -->
+        <li class="nav-item navbar-dropdown dropdown-user dropdown mt-2">
+        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+            <div class="avatar avatar-online">
+            <img src="{{ asset(auth()->user()->image) }}" alt class="w-px-40 h-auto rounded-circle" />
+            </div>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+            <a class="dropdown-item" href="#">
+                <div class="d-flex">
+                <div class="flex-shrink-0 me-3">
+                    <div class="avatar avatar-online">
+                    <img src="{{ asset(auth()->user()->image) }}" alt class="w-px-40 h-auto rounded-circle" />
+                    </div>
+                </div>
+                <div class="flex-grow-1">
+                    <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
+                    <small class="text-muted">@lang('site.manager')</small>
+                </div>
+                </div>
+            </a>
             </li>
+            <li>
+            <div class="dropdown-divider"></div>
+            </li>
+            {{-- @livewire('admin.auth.admin-logout-component') --}}
         </ul>
-    </nav>
-    <!-- /.navbar -->
+        </li>
+        <!--/ User -->
+    </ul>
+</div>
+
+</nav>
+<!-- / Navbar -->

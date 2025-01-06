@@ -1,9 +1,13 @@
-<footer class="main-footer">
-    <strong>Copyright &copy; <?php echo date("Y") ?>
-        <a href="#">Eng : Mohamed Atia</a>.</strong> All rights
-    reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Digitals</b> v1
+<!-- Footer -->
+<footer class="content-footer footer bg-footer-theme">
+    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+      <div class="mb-2 mb-md-0">
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        , made with ❤️ by Eng : Mohamed Atia
+      </div>
     </div>
   </footer>
-  <!-- footer -->
+  <!-- / Footer -->

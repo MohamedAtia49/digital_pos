@@ -76,4 +76,7 @@ return
         'name' => 'Name in english',
         'description' => 'Description in english',
     ],
+
+    'loading' => 'Loading ........',
+    'manager' => 'Manager',
 ];
