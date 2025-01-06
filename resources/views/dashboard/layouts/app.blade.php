@@ -6,6 +6,11 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
 <div class="wrapper">
+    <!-- Preloader -->
+    <div id="preloader" class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="{{ asset('dashboard_files/dist/img/preloader.gif') }}" alt="AdminLTELogo" width="150" height="150">
+        @lang('site.loading')
+    </div>
 
     @include('dashboard.partials.navbar')
 

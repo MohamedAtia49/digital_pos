@@ -81,7 +81,7 @@
         </li>
         </ul>
 
-        {{--<!-- Locales: style can be found in dropdown.less -->--}}
+        {{--<!-- Tasks: style can be found in dropdown.less -->--}}
         <div class="dropdown locales-menu">
             <button class="dropdown-toggle btn-wide" type="button" data-toggle="dropdown">
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)

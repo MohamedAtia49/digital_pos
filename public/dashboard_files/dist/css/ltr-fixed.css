@@ -206,3 +206,49 @@
     position: absolute;
     left: 1187px;
 }
+
+
+
+
+/******************************************************************************/
+
+/* Preloader styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Background color for preloader */
+    z-index: 9999; /* Make sure it appears above all other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.preloader img.animation__shake {
+    animation: shake 1.5s infinite;
+}
+
+/* Shake animation */
+@keyframes shake {
+        0%, 100% {
+        transform: translateX(0);
+        }
+        25% {
+        transform: translateX(-5px);
+        }
+        50% {
+        transform: translateX(5px);
+        }
+        75% {
+        transform: translateX(-5px);
+        }
+}
+
+/* Hide the preloader after loading */
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}

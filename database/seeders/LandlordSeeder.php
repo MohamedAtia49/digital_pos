@@ -29,7 +29,7 @@ class LandlordSeeder extends Seeder
             'database' => 'pos2',
             'created_at' => now(),
             'updated_at' => now(),
-        ]
+        ],
         ]);
 
         // Define Landlord connection
