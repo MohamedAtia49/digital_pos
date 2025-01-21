@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.app')
 
 @section('title',__('site.products'))
-@section('products-active','active')
+@section('products-active','sidebar-active')
 
 @section('content')
 

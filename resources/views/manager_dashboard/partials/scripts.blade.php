@@ -1,6 +1,5 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/jquery/jquery.js"></script>
     <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/popper/popper.js"></script>
     <script src="{{ asset('manager_dashboard/assets/') }}/vendor/js/bootstrap.js"></script>
     <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -20,21 +19,10 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+    @stack('custom-select2')
+    
     <script>
 
-        // Preloader
-        document.addEventListener("DOMContentLoaded", function () {
-                const preloader = document.querySelector(".preloader");
-
-                window.addEventListener("load", function () {
-                    // Add a delay before hiding the preloader (e.g., 2 seconds)
-                    setTimeout(() => {
-                    preloader.classList.add("hidden");
-                    }, 1500); // 2000ms = 2 seconds
-                });
-            });
-
-            
         document.addEventListener("DOMContentLoaded", () => {
             Livewire.hook('morph.updated', (el, component) => {
                 const createdAlert = document.querySelector('.create-alert');
@@ -68,7 +56,6 @@
             });
         })
 
-
         document.addEventListener('createModalToggle', event => {
             $('#createModal').modal('toggle');
         })
@@ -85,4 +72,31 @@
             $('#showModal').modal('toggle');
         })
 
+        ////////////////////////// New /////////////////////////
+            // Preloader
+            document.addEventListener("DOMContentLoaded", function () {
+                const preloader = document.querySelector(".preloader");
+
+                window.addEventListener("load", function () {
+                    // Add a delay before hiding the preloader (e.g., 2 seconds)
+                    setTimeout(() => {
+                    preloader.classList.add("hidden");
+                    }, 1500); // 2000ms = 2 seconds
+                });
+            });
+
+            $('.full-screen').click(function () {
+                // Request full screen for the whole page
+                if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                    $(this).find('i').removeClass('bx-fullscreen').addClass('bx-exit-fullscreen');
+                }else{
+                    document.exitFullscreen();
+                    $(this).find('i').removeClass('bx-exit-fullscreen').addClass('bx-fullscreen');
+                }
+
+            });
+
     </script>
+
+    @stack('scripts')

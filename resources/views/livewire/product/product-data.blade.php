@@ -19,18 +19,16 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            @if (auth()->user()->hasPermission('products_create'))
-                                <a href="{{ route('dashboard.products.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
-                            @else
-                                <a href="#" class="btn btn-primary btn-sm disabled">@lang('site.add')</a>
-                            @endif
+                            <a href="{{ auth()->user()->hasPermission('products_create') ? route('dashboard.products.create') : '#' }}"
+                                class="btn btn-primary {{ auth()->user()->hasPermission('products_create') ? '' : 'disabled' }}">
+                                <i class="fa fa-plus"></i> @lang('site.add')
+                            </a>
                         </div>
                         <div class="col-md-4 product-archive">
-                            @if (auth()->user()->hasPermission('products_archive'))
-                                <a href="{{ route('dashboard.products.archive') }}" class="btn btn-danger"><i class="fa fa-archive"></i> @lang('site.archive')</a>
-                            @else
-                                <a href="#" class="btn btn-danger disabled"><i class="fa fa-archive"></i> @lang('site.archive')</a>
-                            @endif
+                            <a href="{{ auth()->user()->hasPermission('products_archive') ? route('dashboard.products.archive') : '#' }}"
+                                class="btn btn-danger {{ auth()->user()->hasPermission('products_archive') ? '' : 'disabled' }}">
+                                <i class="fa fa-archive"></i> @lang('site.archive')
+                            </a>
                         </div>
                     </form> <!-- end form -->
                 </div>
@@ -70,21 +68,18 @@
                                 <td>{{ $product->profit_percent }}%</td> <!-- Use the accessor -->
                                 <td>{{ $product->profit }}</td> <!-- Use the accessor -->
                                 <td>
-                                    @if (auth()->user()->hasPermission('products_update'))
-                                        <a href="{{ route('dashboard.products.edit', $product->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    @else
-                                        <a href="#" class="btn btn-success btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    @endif
-
-                                    @if (auth()->user()->hasPermission('products_delete'))
-                                        <form action="{{ route('dashboard.products.destroy', $product->id) }}" method="POST" style="display: inline-block">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                        </form>
-                                    @else
-                                        <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                    @endif
+                                    <a href="{{ auth()->user()->hasPermission('products_update') ? route('dashboard.products.edit', $product->id) : '#' }}"
+                                        class="btn btn-success btn-sm {{ auth()->user()->hasPermission('products_update') ? '' : 'disabled' }} ">
+                                        <i class="fa fa-edit"></i> @lang('site.edit')
+                                    </a>
+                                    <form action="{{ auth()->user()->hasPermission('products_delete') ? route('dashboard.products.destroy', $product->id) : '#' }}" method="POST" style="display: inline-block">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            class="btn btn-danger btn-sm {{ auth()->user()->hasPermission('products_delete') ? 'delete' : 'disabled' }}">
+                                            <i class="fa fa-trash"></i> @lang('site.delete')
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -32,9 +32,38 @@ class Product extends Model
             : 0;
     }
 
+    // Accessor to get the sale price in Arabic numbers
+    public function getSalePriceArabicAttribute()
+    {
+        // Convert sale_price to a string with two decimal places
+        $formattedPrice = number_format($this->sale_price, 2);
+
+        // Replace English numerals with Arabic numerals
+        $arabicNumbers = ['0' => '٠', '1' => '١', '2' => '٢', '3' => '٣', '4' => '٤', '5' => '٥', '6' => '٦', '7' => '٧', '8' => '٨', '9' => '٩'];
+        $arabicFormattedPrice = strtr($formattedPrice, $arabicNumbers);
+
+        return $arabicFormattedPrice;
+    }
+    // Accessor to get the sale price in Arabic numbers
+    public function getStockArabicAttribute()
+    {
+        $englishStock = $this->stock;
+        // Replace English numerals with Arabic numerals
+        $arabicNumbers = ['0' => '٠', '1' => '١', '2' => '٢', '3' => '٣', '4' => '٤', '5' => '٥', '6' => '٦', '7' => '٧', '8' => '٨', '9' => '٩'];
+        $arabicStock = strtr($englishStock, $arabicNumbers);
+
+        return $arabicStock;
+    }
+
+    // Relations
     public function category()
     {
         return $this->belongsTo(Category::class,'category_id');
+    }
+
+    public function sales()
+    {
+        return $this->belongsToMany(Sale::class,'product_sale');
     }
 
 }

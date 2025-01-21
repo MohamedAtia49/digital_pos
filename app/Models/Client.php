@@ -23,4 +23,10 @@ class Client extends Model
         );
     }
 
+    // Relations
+
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }

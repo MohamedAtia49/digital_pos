@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminAuthController;
-use App\Http\Controllers\Manager\ManagerAuthController;
 use Livewire\Livewire;
 use App\Livewire\UserSearch;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\CategoryController;
-use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Manager\ManagerAuthController;
+use App\Http\Controllers\Dashboard\Client\SalesController;
 use App\Http\Controllers\Manager\ManagerDashboardController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\Dashboard\Admin\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,31 +51,38 @@ Route::group(['as' => 'admin.'], function () {
     function () {
 
     ########################################## Manager Routes ##########################################
-    Route::prefix('manager/dashboard')->middleware('manager')->name('manager.dashboard.')->group(function () {
-        Route::get('/index', [ManagerDashboardController::class,'index'])->name('index');
+    Route::prefix('manager/dashboard/')->middleware(['manager', 'switch.to.landlord'])->name('manager.dashboard.')->group(function () {
+        Route::get('', ManagerDashboardController::class)->name('index');
+                    ######################### Stores #########################
+        Route::view('stores','manager_dashboard.stores.index')->name('stores');
+                    ######################### Subscriptions #########################
+        Route::view('subscriptions','manager_dashboard.subscriptions.index')->name('subscriptions');
     });
 
     ########################################## Stores Routes ##########################################
-    Route::prefix('store/dashboard')->middleware(['admin','tenant'])->name('dashboard.')->group(function () {
-        Route::get('/index', [DashboardController::class,'index'])->name('index');
-        ######################### Users ##############################
-        Route::resource('/users', UserController::class)->except(['show']);
-        ######################### Categories #########################
-        Route::resource('/categories', CategoryController::class)->except(['show']);
+    Route::prefix('store/dashboard/')->middleware(['admin','tenant','check.subscription'])->name('dashboard.')->group(function () {
+        Route::get('', DashboardController::class)->name('index');
+                    ######################### Users ##############################
+        Route::resource('users', UserController::class)->except(['show']);
+                    ######################### Categories #########################
+        Route::resource('categories', CategoryController::class)->except(['show']);
         Route::controller(CategoryController::class)->group(function () {
-            Route::get('/categories/archive', 'archive')->name('categories.archive');
-            Route::put('/categories/{id}/restore', 'restore')->name('categories.restore');
-            Route::delete('/categories/{id}/force-delete', 'forceDelete')->name('categories.force_delete');
+            Route::get('categories/archive', 'archive')->name('categories.archive');
+            Route::put('categories/{id}/restore', 'restore')->name('categories.restore');
+            Route::delete('categories/{id}/force-delete', 'forceDelete')->name('categories.force_delete');
         });
-        ######################### Products ###########################
-        Route::resource('/products', ProductController::class)->except(['show']);
+                    ######################### Products ###########################
+        Route::resource('products', ProductController::class)->except(['show']);
         Route::controller(ProductController::class)->group(function () {
-            Route::get('/products/archive', 'archive')->name('products.archive');
-            Route::put('/products/{id}/restore', 'restore')->name('products.restore');
-            Route::delete('/products/{id}/force-delete', 'forceDelete')->name('products.force_delete');
+            Route::get('products/archive', 'archive')->name('products.archive');
+            Route::put('products/{id}/restore', 'restore')->name('products.restore');
+            Route::delete('products/{id}/force-delete', 'forceDelete')->name('products.force_delete');
         });
-        ######################### Clients ############################
-        Route::resource('/clients', ClientController::class)->except(['show']);
+                    ######################### Clients ############################
+        Route::resource('clients', ClientController::class)->except(['show']);
+                    ######################### Sales ############################
+        Route::resource('clients.sales', SalesController::class);
+
     });
 
     ######################### Livewire handel Localization #########################

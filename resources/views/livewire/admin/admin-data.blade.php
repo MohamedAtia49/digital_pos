@@ -10,11 +10,10 @@
                         <input type="text" wire:model.live="search" class="form-control" placeholder="@lang('site.search')">
                     </div>
                     <div class="col-md-4">
-                        @if (auth()->user()->hasPermission('users_create'))
-                            <a href="{{ route('dashboard.users.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
-                        @else
-                            <a href="#" class="btn btn-primary btn-sm disabled">@lang('site.add')</a>
-                        @endif
+                        <a href="{{ auth()->user()->hasPermission('users_create') ? route('dashboard.users.create') : '#' }}"
+                            class="btn btn-primary {{ auth()->user()->hasPermission('users_create') ? '' : 'disabled' }}">
+                            <i class="fa fa-plus"></i> @lang('site.add')
+                        </a>
                     </div>
                 </div>
             </div> <!-- end of search -->
@@ -43,21 +42,17 @@
                                     <img src="{{ asset($user->image) }}" width="50px" height="50px">
                                 </td>
                                 <td>
-                                    @if (auth()->user()->hasPermission('users_update'))
-                                        <a href="{{ route('dashboard.users.edit', $user->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    @else
-                                        <a href="#" class="btn btn-success btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    @endif
-
-                                    @if (auth()->user()->hasPermission('users_delete'))
-                                        <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="POST" style="display: inline-block">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                        </form>
-                                    @else
-                                        <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                    @endif
+                                    <a href="{{ auth()->user()->hasPermission('users_update') ? route('dashboard.users.edit', $user->id) : '#' }}"
+                                        class="btn btn-success btn-sm {{ auth()->user()->hasPermission('users_update') ? '' : 'disabled' }}">
+                                        <i class="fa fa-edit"></i> @lang('site.edit')
+                                    </a>
+                                    <form action="{{ auth()->user()->hasPermission('users_delete') ? route('dashboard.users.destroy', $user->id) : '#' }}" method="POST" style="display: inline-block">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm {{ auth()->user()->hasPermission('users_delete') ? 'delete' : 'disabled' }}">
+                                            <i class="fa fa-trash"></i> @lang('site.delete')
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

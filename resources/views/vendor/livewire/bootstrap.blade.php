@@ -39,21 +39,9 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                 </ul>
             </div>
 
-            <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
+            <div class="pagination-container">
                 <div>
-                    <p class="small text-muted">
-                        {!! __('Showing') !!}
-                        <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
-                        {!! __('to') !!}
-                        <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
-                        {!! __('of') !!}
-                        <span class="fw-semibold">{{ $paginator->total() }}</span>
-                        {!! __('results') !!}
-                    </p>
-                </div>
-
-                <div>
-                    <ul class="pagination">
+                    <ul class="pagination" style="font-size: 2rem;">
                         {{-- Previous Page Link --}}
                         @if ($paginator->onFirstPage())
                             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
@@ -95,6 +83,29 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                             </li>
                         @endif
                     </ul>
+                </div>
+
+                <div style="font-size: 1.45rem;">
+                    <p class="small text-muted">
+                        @if (app()->getLocale() == 'ar')
+                            {!! __('عرض') !!}
+                            <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
+                            {!! __('الي') !!}
+                            <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
+                            {!! __('من') !!}
+                            <span class="fw-semibold">{{ $paginator->total() }}</span>
+                            {!! __('نتائج') !!}
+                        @elseif((app()->getLocale() == 'en'))
+                            {!! __('Showing') !!}
+                            <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
+                            {!! __('to') !!}
+                            <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
+                            {!! __('of') !!}
+                            <span class="fw-semibold">{{ $paginator->total() }}</span>
+                            {!! __('results') !!}
+                        @endif
+
+                    </p>
                 </div>
             </div>
         </nav>

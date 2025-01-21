@@ -1,7 +1,7 @@
 <!-- Navbar -->
 
 <nav
-class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-dark"
 id="layout-navbar"
 >
 <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -43,6 +43,11 @@ id="layout-navbar"
         <!-- End Notification -->
     </ul>
 
+    <ul class="navbar-nav flex-row align-items-center">
+        <a href="#" class="full-screen">
+            <i class="menu-icon tf-icons bx bx-fullscreen maximize"></i>
+        </a>
+    </ul>
 
     <ul class="navbar-nav user-icon">
         <!-- User -->

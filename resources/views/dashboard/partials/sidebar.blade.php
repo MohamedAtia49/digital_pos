@@ -26,7 +26,7 @@
                     with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{ route('dashboard.index') }}" class="nav-link @yield('dashboard-active')">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fa fa-tachometer-alt"></i>
                     <p>
                         @lang('site.dashboard')
                     </p>
@@ -35,7 +35,7 @@
                 @if (auth()->user()->hasPermission('categories_read'))
                     <li class="nav-item">
                         <a href="{{ route('dashboard.categories.index') }}" class="nav-link @yield('categories-active')">
-                            <i class="nav-icon fas fa-bars"></i>
+                            <i class="nav-icon fa fa-th"></i>
                             <p>
                                 @lang('site.categories')
                             </p>
@@ -55,7 +55,7 @@
                 @if (auth()->user()->hasPermission('users_read'))
                     <li class="nav-item">
                         <a href="{{ route('dashboard.users.index') }}" class="nav-link @yield('users-active')">
-                            <i class="nav-icon fa fa-users"></i>
+                            <i class="nav-icon fa-solid fa-user-tie"></i>
                             <p>
                                 @lang('site.users')
                             </p>
@@ -72,6 +72,36 @@
                         </a>
                     </li>
                 @endif
+                @if (auth()->user()->hasPermission('orders_read'))
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard.clients.index') }}" class="nav-link @yield('sales-active')">
+                            <i class="nav-icon fa-brands fa-shopify"></i>
+                            <p>
+                                @lang('site.sales')
+                            </p>
+                        </a>
+                    </li>
+                @endif
+                {{-- @if (auth()->user()->hasPermission('clients_read'))
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard.clients.index') }}" class="nav-link @yield('clients-active')">
+                            <i class="nav-icon fa-solid fa-cart-shopping"></i>
+                            <p>
+                                @lang('site.purchases')
+                            </p>
+                        </a>
+                    </li>
+                @endif
+                @if (auth()->user()->hasPermission('clients_read'))
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard.clients.index') }}" class="nav-link @yield('clients-active')">
+                            <i class="nav-icon fa-solid fa-file"></i>
+                            <p>
+                                @lang('site.reports')
+                            </p>
+                        </a>
+                    </li>
+                @endif --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

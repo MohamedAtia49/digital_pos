@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.app')
 
 @section('title',__('site.products'))
-@section('products-active','active')
+@section('products-active','sidebar-active')
 
 @section('content')
 
@@ -31,7 +31,7 @@
 
                 <div class="box-body">
 
-                    @include('dashboard.paritals._errors')
+                    @include('dashboard.partials._errors')
 
                     <form action="{{ route('dashboard.products.update',$product->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -83,7 +83,7 @@
                             <input type="text" class="form-control form-control-sm" name="stock" value="{{ $product->stock }}" placeholder="@lang('site.stock')">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group btn-fix-center">
                             <button type="submit" class="btn btn-primary btn-fix"> <i class="fa fa-plus"></i> @lang('site.update')</button>
                         </div>
 

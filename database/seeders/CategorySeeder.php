@@ -19,6 +19,10 @@ class CategorySeeder extends Seeder
                 "en" => "TVs",
             ],
             [
+                "ar" => "لابات",
+                "en" => "Laptops",
+            ],
+            [
                 "ar" => "ساعات",
                 "en" => "Watches",
             ],

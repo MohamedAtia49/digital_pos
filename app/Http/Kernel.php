@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'manager' => \App\Http\Middleware\Manager::class,
         'guest.manager' => \App\Http\Middleware\GuestManager::class,
+        'switch.to.landlord' =>  \App\Http\Middleware\SwitchToLandlord::class,
         /**** OTHER MIDDLEWARE ****/
         'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
         'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
@@ -74,5 +75,6 @@ class Kernel extends HttpKernel
         'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
         'tenant' => \App\Http\Middleware\EnsureCorrectTenant::class,
         'check.host' => \App\Http\Middleware\EnsureCorrectHost::class,
+        'check.subscription' => \App\Http\Middleware\CheckSubscription::class,
     ];
 }

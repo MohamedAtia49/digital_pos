@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ManagerDashboardController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         return view('manager_dashboard.welcome');
     }

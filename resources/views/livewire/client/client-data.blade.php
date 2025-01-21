@@ -13,11 +13,10 @@
                             <input type="text" wire:model.live='nationalNumber' class="form-control product-search input-height" placeholder="@lang('site.search_national_number')">
                         </div>
                         <div class="col-md-4">
-                            @if (auth()->user()->hasPermission('clients_create'))
-                                <a href="{{ route('dashboard.clients.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
-                            @else
-                                <a href="#" class="btn btn-primary btn-sm disabled">@lang('site.add')</a>
-                            @endif
+                            <a href="{{ auth()->user()->hasPermission('clients_create') ? route('dashboard.clients.create') : '#' }}"
+                                class="btn btn-primary {{ auth()->user()->hasPermission('clients_create') ? '' : 'disabled' }} ">
+                                <i class="fa fa-plus"></i> @lang('site.add')
+                            </a>
                         </div>
                     </form> <!-- end form -->
                 </div>
@@ -32,10 +31,11 @@
                         <tr>
                             <th width='2%'>#</th>
                             <th width='20%'>@lang('site.name')</th>
-                            <th width='20%'>@lang('site.national_number')</th>
+                            <th width='10%'>@lang('site.national_number')</th>
                             <th width='20%'>@lang('site.phone')</th>
                             <th width='20%'>@lang('site.address')</th>
-                            <th width='40%'>@lang('site.action')</th>
+                            <th class="text-center" width='15%'>@lang('site.add_sale')</th>
+                            <th width='20%'>@lang('site.action')</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,22 +49,25 @@
                                 <td>{{ $client->national_number }}</td>
                                 <td>{{ $client->phone }}</td>
                                 <td>{{ $client->address }}</td>
+                                <td class="text-center">
+                                    <a href="{{ auth()->user()->hasPermission('orders_create') ? route('dashboard.clients.sales.create', $client->id) : '#' }}"
+                                        class="btn btn-primary btn-sm {{ auth()->user()->hasPermission('orders_create') ? '' : 'disabled' }}">
+                                        @lang('site.add_sale')
+                                    </a>
+                                </td>
                                 <td>
-                                    @if (auth()->user()->hasPermission('clients_update'))
-                                        <a href="{{ route('dashboard.clients.edit', $client->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    @else
-                                        <a href="#" class="btn btn-success btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    @endif
-
-                                    @if (auth()->user()->hasPermission('clients_delete'))
-                                        <form action="{{ route('dashboard.clients.destroy', $client->id) }}" method="POST" style="display: inline-block">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                        </form>
-                                    @else
-                                        <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                    @endif
+                                    <a href="{{ auth()->user()->hasPermission('clients_update') ? route('dashboard.clients.edit', $client->id) : '#' }}"
+                                        class="btn btn-success btn-sm {{ auth()->user()->hasPermission('clients_update') ? '' : 'disabled' }}">
+                                        <i class="fa fa-edit"></i> @lang('site.edit')
+                                    </a>
+                                    <form action="{{ auth()->user()->hasPermission('clients_delete') ? route('dashboard.clients.destroy', $client->id) : '#' }}" method="POST" style="display: inline-block">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            class="btn btn-danger btn-sm {{ auth()->user()->hasPermission('clients_delete') ? 'delete' : 'disabled' }}">
+                                            <i class="fa fa-trash"></i> @lang('site.delete')
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

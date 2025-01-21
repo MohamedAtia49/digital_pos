@@ -3,6 +3,7 @@
 return
 [
     'no_data_found' => 'no data found',
+    'record' => 'سجل',
 
     'dashboard' => 'Home',
     'categories' => 'Categories',
@@ -12,6 +13,16 @@ return
     'clients' => 'Clients',
     'users' => 'Users',
     'orders' => 'orders',
+    'purchases' => 'Purchases',
+    'sales' => 'Sales',
+    'add_sale' => 'Add order',
+    'create_sale' => 'Create order',
+    'product' => 'product',
+    'quantity' => 'quantity',
+    'price' => 'price',
+    'sub_total' => 'Sub total',
+    'total' => 'Total',
+    'tax' => 'Tax',
     'digital' => 'Digital',
 
     'products_count' => 'products count',
@@ -78,5 +89,33 @@ return
     ],
 
     'loading' => 'Loading ........',
+
+    // Manager Locales
     'manager' => 'Manager',
+    'stores' => 'Stores',
+    'store' => 'store',
+    'store_name' => 'Store name',
+
+    'subscriptions' => 'Subscriptions',
+    'subscription' => 'Subscription',
+    'reports' => 'Reports',
+    'settings' => 'Settings',
+    'close' => 'Close',
+
+    'domain' => 'domain',
+    'database' => 'database',
+    'status' => 'Status',
+    'active' => 'active',
+    'not_active' => 'not active',
+    'subscription_type' => 'Subscription type',
+    'monthly' => 'monthly',
+    'half_year' => 'half_year',
+    'annual' => 'annual',
+    'subscribed_from' => 'Date of creation',
+    'start_date' => 'Subscription date',
+    'end_date' => 'End date',
+
+    'are_you_sure' => 'Are you sure you want to delete this record ?',
+
+    'stock_failed' => 'There is a problem with this product stock or quantity not available !',
 ];

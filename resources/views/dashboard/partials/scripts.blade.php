@@ -35,10 +35,15 @@
 <script src="{{ asset('dashboard_files/js/fastclick.js') }}"></script>
 <!-- tiny MCE -->
 <script src="https://cdn.tiny.cloud/1/27b5q2pg19cejl93lsfs9dkyjzsdo57wr5rf3tps0vtnwzwc/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- JQuery Number -->
+<script src="{{ asset('dashboard_files/js/jquery.number.min.js') }}"></script>
 
 <!-- custom js -->
+<script src="{{ asset('dashboard_files/js/custom/preloader.js') }}"></script>
 <script src="{{ asset('dashboard_files/js/custom/image_preview.js') }}"></script>
-<script src="{{ asset('dashboard_files/js/custom/order.js') }}"></script>
+{{-- <script src="{{ asset('dashboard_files/js/custom/order.js') }}"></script> --}}
+<script src="{{ asset('dashboard_files/js/custom/order_create_styles.js') }}"></script>
+<script src="{{ asset('dashboard_files/js/custom/new_order.js') }}"></script>
 <script src="{{ asset('dashboard_files/js/custom/icheck.js') }}"></script>
 {{-- <script src="{{ asset('dashboard_files/js/custom/delete_item.js') }}"></script> --}}
 
@@ -92,18 +97,6 @@
         n.show();
 
     });//end of restore
-
-    // Preloader
-    document.addEventListener("DOMContentLoaded", function () {
-        const preloader = document.querySelector(".preloader");
-
-        window.addEventListener("load", function () {
-            // Add a delay before hiding the preloader (e.g., 2 seconds)
-            setTimeout(() => {
-            preloader.classList.add("hidden");
-            }, 1500); // 2000ms = 2 seconds
-        });
-    });
 
 </script>
 @yield('scripts')

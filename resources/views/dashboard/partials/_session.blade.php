@@ -54,3 +54,17 @@
     </script>
 
 @endif
+
+@if (session('stock_failed'))
+
+    <script>
+        new Noty({
+            type: 'error',
+            layout: 'topRight',
+            text: "{{ session('stock_failed') }}",
+            timeout: 2000,
+            killer: true
+        }).show();
+    </script>
+
+@endif

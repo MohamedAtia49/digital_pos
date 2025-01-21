@@ -3,6 +3,7 @@
 return
 [
     'no_data_found' => 'للاسف لا يوجد اى سجلات',
+    'record' => 'سجل',
 
     'dashboard' => 'الرئيسية',
     'categories' => 'الاقسام',
@@ -12,6 +13,16 @@ return
     'clients' => 'العملاء',
     'users' => 'المشرفين',
     'orders' => 'الطلبات',
+    'purchases' => 'المشتريات',
+    'sales' => 'المبيعات',
+    'add_sale' => 'اضف طلب',
+    'create_sale' => 'اضافة طلب',
+    'product' => 'المنتج',
+    'quantity' => 'الكمية',
+    'price' => 'السعر',
+    'sub_total' => 'السعر الكلى',
+    'total' => 'اجمالي',
+    'tax' => 'ضريبة القيمة المضافة',
     'digital' => 'ديجيتال',
 
     'products_count' => 'عدد المنتجات',
@@ -78,6 +89,34 @@ return
     ],
 
     'loading' => 'تحميل ........',
+
+    // Manager Locales
     'manager' => 'مدير',
+    'stores' => 'المتاجر',
+    'store' => 'متجر',
+    'store_name' => 'اسم المتجر',
+
+    'subscriptions' => 'الاشتراكات',
+    'subscription' => 'اشتراك',
+    'reports' => 'التقارير',
+    'settings' => 'الاعدادات',
+    'close' => 'الغاء',
+
+    'domain' => 'الدومين',
+    'database' => 'قاعدة البيانات',
+    'status' => 'الحالة',
+    'active' => 'نشط',
+    'not_active' => 'غير نشط',
+    'subscription_type' => 'نوع الاشتراك',
+    'monthly' => 'شهرى',
+    'half_year' => 'نصف سنوى',
+    'annual' => 'سنوى',
+    'created_from' => 'تاريخ الانشاء',
+    'start_date' => 'تاريخ الاشتراك',
+    'end_date' => 'تاريخ الانتهاء',
+
+    'are_you_sure' => 'هل انت متأكد انك تريد خذف السجل ؟',
+
+    'stock_failed' => '! فشل فى اشناء الفاتورة ، هناك مشكلة فى الكمية او مخزون المنتج غير متاح',
 ];
 

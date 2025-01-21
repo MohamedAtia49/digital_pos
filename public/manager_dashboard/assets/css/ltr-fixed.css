@@ -11,11 +11,11 @@
     left: 1020px;
     display: flex;
     align-items: center;
-    color: white;
+    color: #081a24;
     gap: 8px;
     padding: 10px 15px;
     border-radius: 10px;
-    background-color: #6448b1;
+    background-color: white;
     border: 2px solid #1a4964;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -48,7 +48,7 @@
 }
 
 .locale:hover{
-    background-color: #482d91;
+    background-color: #394859;
     color: white;
 }
 
@@ -94,4 +94,35 @@
 .preloader.hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+.manager-btn-add{
+    position: absolute;
+    left: 30px;
+}
+.manager-btn-close{
+    position: absolute;
+    left: 120px;
+}
+
+.create-footer{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.th-text{
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.th-text-database{
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-close-fix{
+    margin-left: 20px;
 }

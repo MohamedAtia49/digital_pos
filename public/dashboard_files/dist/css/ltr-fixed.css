@@ -1,14 +1,44 @@
-.user {
+
+/* new css*/
+.nav-user {
+    margin-right: 0;
+    margin-top: 7px ;
     position: absolute;
     top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
+    right: 40px;
+}
+
+.nav-locales{
+    margin-right: 0;
+    margin-top: 7px ;
+    position: absolute;
+    top: 7px;
+    right: 280px;
+}
+
+.nav-messages{
+    margin-right: 0;
+    margin-top: 7px ;
+    position: absolute;
+    top: 0;
+    right: 190px;
+}
+
+.nav-notifications{
+    margin-right: 0;
+    margin-top: 7px ;
+    position: absolute;
+    top: 0;
+    right: 120px;
 }
 
 .user-menu .dropdown-toggle {
     display: flex;
     align-items: center;
+}
+
+.user-icon{
+    font-size: 26px;
 }
 
 .navbar {
@@ -21,15 +51,20 @@
     right: 0;
     left: auto;
     z-index: 1050; /* Ensure dropdown appears above other content */
-    background-color: #343a40;
+    background-color: rgb(31, 51, 31);
     color: white;
 }
 
 .user-menu:hover{
-    background-color: #000c19;
+    background-color: rgb(31, 51, 31);
+    border-radius: 50%;
     display: block;
     visibility: visible;
     opacity: 1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 /* Make the user-footer a flex container */
@@ -41,31 +76,33 @@
 
 /* Optional: Style the logout button */
 .btn-flat{
-    background-color: #000c19;
+    background-color: rgb(31, 51, 31);
+    color: white;
 }
 
-.notifications{
-    position: absolute;
-    top: 11px;
-    right: 170px;
-    margin: 0;
-    padding: 0;
+.btn-flat:hover{
+    background-color: red;
+    color: white;
 }
 
-.messages{
-    position: absolute;
-    top: 11px;
-    right: 220px;
-    margin: 0;
-    padding: 0;
+.notifications:hover{
+    background-color: rgb(31, 51, 31);
+    border-radius: 50%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
-.locales-menu{
-    position: absolute;
-    top: 16px;
-    right: 280px;
-    margin: 0;
-    padding: 0;
+.messages:hover{
+    background-color: rgb(31, 51, 31);
+    border-radius: 50%;
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .btn-wide{
@@ -82,7 +119,7 @@
 }
 
 .locale:hover{
-    background-color: #343a40;
+    background-color: rgb(31, 51, 31);
     color: white;
 }
 
@@ -110,14 +147,14 @@
 }
 
 #custom-tabs .nav-link:hover {
-    color: #495057; /* Hover color */
-    background-color: #e9ecef; /* Hover background color */
+    color: white; /* Hover color */
+    background-color: #00695C; /* Hover background color */
 }
 
 #custom-tabs .nav-link.active {
     color: #fff; /* Active tab text color */
-    background-color: #266c8f; /* Active tab background color */
-    border-color: #007bff; /* Active tab border color */
+    background-color: rgb(31, 51, 31); /* Active tab background color */
+    border-color: white; /* Active tab border color */
 }
 
 .product-search{
@@ -130,18 +167,20 @@
 }
 
 .btn-fix{
-    margin-bottom: 20px;
-    margin-left: 320px;
     font-size: 20px;
     width: 1000px;
 }
 
+.btn-fix-center{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+}
+
 .header-title{
-    background-color: #495057;
+    background-color: rgb(31, 51, 31);
     padding-left: 100px;
     padding-right: 100px;
-    padding-top: 6px;
-    padding-bottom: 6px;
     border: 1px solid #2d333a;
     color: white;
     border-radius: 15px;
@@ -153,6 +192,27 @@
 
 .brand-link{
     height: 160px;
+    background-color: rgb(57, 94, 57);
+}
+
+.navbar-expand {
+    background-color: #00695C;
+}
+
+.btn-primary{
+    background-color: rgb(31, 51, 31);
+}
+
+.btn-primary:hover{
+    background-color: rgb(83, 139, 83);
+}
+
+.os-content{
+    background-color: rgb(50, 82, 50);
+}
+
+.sidebar-active{
+    background-color: rgb(83, 139, 83);
 }
 
 .brand-img{
@@ -251,4 +311,85 @@
 .preloader.hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+.cat-title {
+    background-color: rgb(83, 139, 83); /* Default background */
+    color: white; /* Default text color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    cursor: pointer;
+}
+
+.cat-title:hover {
+    background-color: rgb(50, 82, 50); /* Background color on hover */
+    color: #4c555e; /* Hover button text color */
+    text-align: center;
+}
+
+.cat-title.active {
+    background-color: rgb(35, 54, 35); /* Active background color */
+    text-align: center;
+}
+.btn-link {
+    color: white; /* Default button text color */
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+.btn-link.btn-cat-name {
+    color: #c7c558; /* Active button text color */
+    font-weight: bolder;
+}
+
+.cat-name{
+    font-size: 20px;
+}
+
+.card-color{
+    background-color: rgb(31, 51, 31);
+    color: white;
+}
+
+/******************************************************************************/
+/* Pagination changes */
+
+/* General pagination link styles */
+
+.pagination-container {
+    display: flex; /* Use flexbox to arrange the children in a row */
+    align-items: center; /* Align items vertically in the center */
+    gap: 20px; /* Space between the pagination and the text */
+}
+
+
+.pagination {
+    position: relative;
+    right: 0;
+}
+
+.pagination .page-link {
+    background-color: #ffffff; /* Green background */
+    color: rgb(83, 139, 83);             /* White text */
+    font-weight: bolder;
+    border: 1px solid rgb(7, 7, 7); /* Green border */
+}
+
+/* Hover effect for links */
+.pagination .page-link:hover {
+    background-color: rgb(31, 51, 31); /* Darker green on hover */
+    color: white;
+}
+
+/* Active page link styles */
+.pagination .page-item.active .page-link {
+    background-color: rgb(83, 139, 83); /* Darker green for active link */
+    border-color: #218838;
+    color: white;
+}
+
+/* Disabled page links */
+.pagination .page-item.disabled .page-link {
+    background-color: #ffffff; /* Light gray for disabled links */
+    color: rgb(7, 7, 7);
+    border-color: rgb(7, 7, 7);
+    cursor: not-allowed;
 }

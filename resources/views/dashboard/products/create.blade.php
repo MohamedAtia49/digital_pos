@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.app')
 
 @section('title',__('site.products'))
-@section('products-active','active')
+@section('products-active','sidebar-active')
 
 @section('content')
 
@@ -13,7 +13,7 @@
 
             <ol class="breadcrumb">
                 <li class="breadcrumb-main"><a href="{{ route('dashboard.index') }}"><i class="nav-icon fas fa-tachometer-alt"></i> @lang('site.dashboard')</a></li>
-                <li class="active"></i> <span class="breadcrumb-span">/</span> @lang('site.products')</li>
+                <li class="active"><span class="breadcrumb-span">/</span> @lang('site.products')</li>
                 <li class="active"></i> <span class="breadcrumb-span-last">/</span> @lang('site.add')</li>
             </ol>
 
@@ -31,7 +31,7 @@
 
                 <div class="box-body">
 
-                    @include('dashboard.paritals._errors')
+                    @include('dashboard.partials._errors')
 
                     <form action="{{ route('dashboard.products.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -80,7 +80,7 @@
                             <input type="text" class="form-control form-control-sm" name="stock" value="{{ old('stock') }}" placeholder="@lang('site.stock')">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group btn-fix-center">
                             <button type="submit" class="btn btn-primary btn-fix"> <i class="fa fa-plus"></i> @lang('site.add')</button>
                         </div>
 

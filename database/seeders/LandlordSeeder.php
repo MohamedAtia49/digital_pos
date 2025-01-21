@@ -21,15 +21,7 @@ class LandlordSeeder extends Seeder
             'database' => 'pos',
             'created_at' => now(),
             'updated_at' => now(),
-        ],
-        [
-            'id' => 2,
-            'name' => 'Store2',
-            'domain' => 'store2.pos.test',
-            'database' => 'pos2',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]
+            ]
         ]);
 
         // Define Landlord connection

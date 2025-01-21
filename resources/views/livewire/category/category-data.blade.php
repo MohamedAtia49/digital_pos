@@ -10,18 +10,16 @@
                         <input type="text" wire:model.live="search" class="form-control" placeholder="@lang('site.search')">
                     </div>
                     <div class="col-md-4">
-                        @if (auth()->user()->hasPermission('categories_create'))
-                            <a href="{{ route('dashboard.categories.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
-                        @else
-                            <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> @lang('site.add')</a>
-                        @endif
+                        <a href="{{ auth()->user()->hasPermission('categories_create') ? route('dashboard.categories.create') : '#' }}"
+                            class="btn btn-primary {{ auth()->user()->hasPermission('categories_create') ? '' : 'disabled' }}">
+                            <i class="fa fa-plus"></i> @lang('site.add')
+                        </a>
                     </div>
                     <div class="col-md-4 archive">
-                        @if (auth()->user()->hasPermission('categories_archive'))
-                            <a href="{{ route('dashboard.categories.archive') }}" class="btn btn-danger"><i class="fa fa-archive"></i> @lang('site.archive')</a>
-                        @else
-                            <a href="#" class="btn btn-danger disabled"><i class="fa fa-archive"></i> @lang('site.archive')</a>
-                        @endif
+                        <a href="{{ auth()->user()->hasPermission('categories_archive') ? route('dashboard.categories.archive') : '#' }}"
+                            class="btn btn-danger {{ auth()->user()->hasPermission('categories_archive') ? '' : 'disabled' }}">
+                            <i class="fa fa-archive"></i> @lang('site.archive')
+                        </a>
                     </div>
                 </div>
             </div> <!-- end of search -->
@@ -48,21 +46,18 @@
                                 <td>{{ $category->products_count }}</td>
                                 <td class="text-center"><a href="{{ route('dashboard.products.index', ['category_id' => $category->id]) }}" class="btn btn-primary">@lang('site.related_products')</a></td>
                                 <td>
-                                    @if (auth()->user()->hasPermission('categories_update'))
-                                        <a href="{{ route('dashboard.categories.edit', $category->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    @else
-                                        <a href="#" class="btn btn-success btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    @endif
-
-                                    @if (auth()->user()->hasPermission('categories_delete'))
-                                        <form action="{{ route('dashboard.categories.destroy', $category->id) }}" method="POST" style="display: inline-block">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                        </form>
-                                    @else
-                                        <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                    @endif
+                                    <a href="{{ auth()->user()->hasPermission('categories_update') ? route('dashboard.categories.edit', $category->id) : '#' }}"
+                                        class="btn btn-success btn-sm {{ auth()->user()->hasPermission('categories_update') ? '' : 'disabled' }}">
+                                        <i class="fa fa-edit"></i> @lang('site.edit')
+                                    </a>
+                                    <form action="{{ auth()->user()->hasPermission('categories_delete') ? route('dashboard.categories.destroy', $category->id) : '#' }}" method="POST" style="display: inline-block">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            class="btn btn-danger btn-sm {{ auth()->user()->hasPermission('categories_delete') ? 'delete' : 'disabled' }}" >
+                                            <i class="fa fa-trash"></i> @lang('site.delete')
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
