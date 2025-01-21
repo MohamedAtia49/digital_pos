@@ -1,7 +1,11 @@
 <!-- Navbar -->
 
 <nav
+<<<<<<< HEAD
 class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-dark"
+=======
+class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
 id="layout-navbar"
 >
 <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -43,11 +47,14 @@ id="layout-navbar"
         <!-- End Notification -->
     </ul>
 
+<<<<<<< HEAD
     <ul class="navbar-nav flex-row align-items-center">
         <a href="#" class="full-screen">
             <i class="menu-icon tf-icons bx bx-fullscreen maximize"></i>
         </a>
     </ul>
+=======
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
 
     <ul class="navbar-nav user-icon">
         <!-- User -->

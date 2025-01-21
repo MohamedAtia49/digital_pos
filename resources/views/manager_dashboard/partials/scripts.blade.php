@@ -1,5 +1,9 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+<<<<<<< HEAD
+=======
+    <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/jquery/jquery.js"></script>
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
     <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/popper/popper.js"></script>
     <script src="{{ asset('manager_dashboard/assets/') }}/vendor/js/bootstrap.js"></script>
     <script src="{{ asset('manager_dashboard/assets/') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -19,10 +23,28 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+<<<<<<< HEAD
     @stack('custom-select2')
     
     <script>
 
+=======
+    <script>
+
+        // Preloader
+        document.addEventListener("DOMContentLoaded", function () {
+                const preloader = document.querySelector(".preloader");
+
+                window.addEventListener("load", function () {
+                    // Add a delay before hiding the preloader (e.g., 2 seconds)
+                    setTimeout(() => {
+                    preloader.classList.add("hidden");
+                    }, 1500); // 2000ms = 2 seconds
+                });
+            });
+
+            
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
         document.addEventListener("DOMContentLoaded", () => {
             Livewire.hook('morph.updated', (el, component) => {
                 const createdAlert = document.querySelector('.create-alert');
@@ -56,6 +78,10 @@
             });
         })
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
         document.addEventListener('createModalToggle', event => {
             $('#createModal').modal('toggle');
         })
@@ -72,6 +98,7 @@
             $('#showModal').modal('toggle');
         })
 
+<<<<<<< HEAD
         ////////////////////////// New /////////////////////////
             // Preloader
             document.addEventListener("DOMContentLoaded", function () {
@@ -100,3 +127,6 @@
     </script>
 
     @stack('scripts')
+=======
+    </script>
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5

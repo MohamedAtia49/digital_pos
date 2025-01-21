@@ -89,6 +89,7 @@ return
     ],
 
     'loading' => 'Loading ........',
+<<<<<<< HEAD
 
     // Manager Locales
     'manager' => 'Manager',
@@ -118,4 +119,7 @@ return
     'are_you_sure' => 'Are you sure you want to delete this record ?',
 
     'stock_failed' => 'There is a problem with this product stock or quantity not available !',
+=======
+    'manager' => 'Manager',
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
 ];

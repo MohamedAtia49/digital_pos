@@ -83,6 +83,7 @@
             </li>
         </ul>
 
+<<<<<<< HEAD
         <!-- Locales: style can be found in dropdown.less -->
         <ul class="navbar-nav nav-locales">
             <li class="nav-item">
@@ -107,6 +108,28 @@
                 </div>
             </li>
         </ul>
+=======
+        {{--<!-- Locales: style can be found in dropdown.less -->--}}
+        <div class="dropdown locales-menu">
+            <button class="dropdown-toggle btn-wide" type="button" data-toggle="dropdown">
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    @if (app()->getLocale() == $localeCode)
+                        <span class="lang-name">{{ $properties['native'] }}</span>
+                        <img src="{{ asset('vendor/blade-flags/language-' . $localeCode . '.svg') }}" class="flag-icon-main" width="15px" height="15px">
+                    @endif
+                @endforeach
+            </button>
+            <div class="dropdown-menu">
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <a class="dropdown-item locale" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        <!-- Adjust width and height directly -->
+                        <img src="{{ asset('vendor/blade-flags/language-' . $localeCode . '.svg') }}"  width="30" height="30" alt="{{ $properties['native'] }}" class="flag-icon">
+                        {{ $properties['native'] }}
+                    </a>
+                @endforeach
+            </div>
+        </div>
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
 
         <!-- user menu icon -->
         <ul class="navbar-nav nav-user">

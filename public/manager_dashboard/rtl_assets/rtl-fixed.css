@@ -8,6 +8,7 @@
 .locales-menu .dropdown-toggle {
     position: relative;
     top: -20px;
+<<<<<<< HEAD
     right: 960px;
     display: flex;
     align-items: center;
@@ -16,6 +17,16 @@
     padding: 10px 15px;
     border-radius: 10px;
     background-color: white;
+=======
+    right: 1020px;
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #6448b1;
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
     border: 2px solid #1a4964;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -48,6 +59,7 @@
 }
 
 .locale:hover{
+<<<<<<< HEAD
     background-color: #394859;
     color: white;
 }
@@ -59,6 +71,12 @@
     right: 980px;
     top: 7px;
 }
+=======
+    background-color: #482d91;
+    color: white;
+}
+
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
 
 /******************************************************************************/
 /* Preloader styles */
@@ -102,6 +120,7 @@
     visibility: hidden;
 }
 
+<<<<<<< HEAD
 .manager-btn-add{
     position: absolute;
     right: 30px;
@@ -128,3 +147,5 @@
     font-weight: bold;
     font-size: 14px;
 }
+=======
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5

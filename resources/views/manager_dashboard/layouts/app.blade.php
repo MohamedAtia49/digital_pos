@@ -16,7 +16,11 @@
             @lang('site.loading')
         </div>
         <!--  End Preloader -->
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
         <!-- Layout wrapper -->
         <div class="layout-wrapper layout-content-navbar">
             <div class="layout-container">

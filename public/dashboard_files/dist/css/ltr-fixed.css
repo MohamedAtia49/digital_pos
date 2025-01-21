@@ -312,6 +312,7 @@
     opacity: 0;
     visibility: hidden;
 }
+<<<<<<< HEAD
 
 .cat-title {
     background-color: rgb(83, 139, 83); /* Default background */
@@ -393,3 +394,5 @@
     border-color: rgb(7, 7, 7);
     cursor: not-allowed;
 }
+=======
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5

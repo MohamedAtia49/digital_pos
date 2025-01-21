@@ -11,11 +11,19 @@
     left: 1020px;
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     color: #081a24;
     gap: 8px;
     padding: 10px 15px;
     border-radius: 10px;
     background-color: white;
+=======
+    color: white;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #6448b1;
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
     border: 2px solid #1a4964;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -48,7 +56,11 @@
 }
 
 .locale:hover{
+<<<<<<< HEAD
     background-color: #394859;
+=======
+    background-color: #482d91;
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
     color: white;
 }
 
@@ -95,6 +107,7 @@
     opacity: 0;
     visibility: hidden;
 }
+<<<<<<< HEAD
 
 .manager-btn-add{
     position: absolute;
@@ -126,3 +139,5 @@
 .btn-close-fix{
     margin-left: 20px;
 }
+=======
+>>>>>>> 5dac875f776f9454fca7f985b467d23842f685f5
